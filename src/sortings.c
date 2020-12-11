@@ -112,7 +112,7 @@ void merge(strings_array_t strings_array, array_size_t array_size, comparator_fu
             right += step * 2;
         } while (left < array_size);
 
-        for(int i = 0; i < array_size; i++)
+        for(array_size_t i = 0; i < array_size; i++)
         {
             strings_array[i] = new_array[i];
         }
@@ -171,11 +171,11 @@ void swap_arrays(strings_array_t first_array, strings_array_t second_array)
 
 void recursion_radix(strings_array_t strings_array, array_size_t array_size, int position)
 {
-    int count[UCHAR_MAX + 1], mode, i;
+    array_size_t count[UCHAR_MAX + 1], mode, i;
     strings_array_t bucket[UCHAR_MAX + 1], top[UCHAR_MAX + 1];
     while(array_size > 1)
     {
-        memset(count, 0, sizeof(int) * (UCHAR_MAX + 1));
+        memset(count, 0, sizeof(array_size_t) * (UCHAR_MAX + 1));
         for(i = 0; i < array_size; i++)
         {
             count[strings_array[i][position]]++;
