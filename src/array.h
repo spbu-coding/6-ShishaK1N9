@@ -10,9 +10,9 @@
 #include <stdlib.h>
 
 #include "sortings.h"
+#include "validate.h"
 
 typedef int sort_num_t, comparator_num_t;
-typedef char *file_name_t;
 
 void input_array(file_name_t, array_size_t, strings_array_t);
 
