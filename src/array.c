@@ -8,7 +8,7 @@
 void input_array(file_name_t file_name, array_size_t array_size, strings_array_t strings_array)
 {
     FILE* input_file = fopen(file_name, "r");
-    for(int i = 0; i < array_size; i++)
+    for(array_size_t i = 0; i < array_size; i++)
     {
         fgets(strings_array[i], MAX_INPUT_STRING_SIZE, input_file);
     }
