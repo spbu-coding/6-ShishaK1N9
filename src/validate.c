@@ -35,7 +35,7 @@ bool check_existence_input_file(file_name_t file_name)
 bool check_count_of_strings(file_name_t file_name, count_of_strings_t count_of_strings)
 {
     FILE *input_file = fopen(file_name, "r");
-    int count_of_input_strings = 0;
+    array_size_t count_of_input_strings = 0;
     char *input_string = malloc(sizeof(char) * MAX_INPUT_STRING_SIZE);
     while(!feof(input_file))
     {
@@ -57,7 +57,7 @@ bool check_count_of_strings(file_name_t file_name, count_of_strings_t count_of_s
 
 bool is_integer(string_t string)
 {
-    for(int i = 0; i < strlen(string); i++)
+    for(array_size_t i = 0; i < strlen(string); i++)
         if(string[i] < '0' || string[i] > '9')
         {
             return false;
@@ -67,7 +67,7 @@ bool is_integer(string_t string)
 
 int is_string_in_array(string_t string, const_string_array_t string_array, array_size_t array_size)
 {
-    for(int i = 0; i < array_size; i++)
+    for(array_size_t i = 0; i < array_size; i++)
     {
         if(strcmp(string, string_array[i]) == 0)
         {

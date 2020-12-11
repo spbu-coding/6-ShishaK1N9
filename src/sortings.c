@@ -178,7 +178,7 @@ void recursion_radix(strings_array_t strings_array, array_size_t array_size, int
         memset(count, 0, sizeof(array_size_t) * (UCHAR_MAX + 1));
         for(i = 0; i < array_size; i++)
         {
-            count[strings_array[i][position]]++;
+            count[(int) strings_array[i][position]]++;
         }
 
         mode = 1;
@@ -200,13 +200,13 @@ void recursion_radix(strings_array_t strings_array, array_size_t array_size, int
             for(i = 0; i <= UCHAR_MAX; i++)
             {
                 while(top[i] < bucket[i] + count[i])
-                    if(top[i][0][position] == i)
+                    if((array_size_t) top[i][0][position] == i)
                     {
                         top[i]++;
                     }
                     else
                     {
-                        swap_arrays(top[i], top[top[i][0][position]]++);
+                        swap_arrays(top[i], top[(int) top[i][0][position]]++);
                     }
             }
 
@@ -232,7 +232,7 @@ void radix(strings_array_t strings_array, array_size_t array_size, comparator_fu
     recursion_radix(strings_array, array_size, 0);
     if(comparator == comparator_des)
     {
-        for(int i = 0; i < array_size / 2; i++)
+        for(array_size_t i = 0; i < array_size / 2; i++)
         {
             char *swapper = strings_array[i];
             strings_array[i] = strings_array[array_size - i - 1];
