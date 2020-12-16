@@ -5,6 +5,8 @@
 
 #include "array.h"
 
+static char* END_OF_FILE = "\n";
+
 void input_array(file_name_t file_name, array_size_t array_size, strings_array_t strings_array)
 {
     FILE* input_file = fopen(file_name, "r");
@@ -21,6 +23,10 @@ void output_array(file_name_t file_name, array_size_t array_size, strings_array_
     for(array_size_t i = 0; i < array_size; i++)
     {
         fputs(strings_array[i], output_file);
+    }
+    if(array_size == 0)
+    {
+        fputs(END_OF_FILE, output_file);
     }
     fclose(output_file);
 }
